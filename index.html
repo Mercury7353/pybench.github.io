@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyBench: Evaluate LLM Agent on Real World Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .center {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center">PyBench: Evaluate LLM Agent on Various Real World Coding Tasks</h1>
+    
+    <p class="center">
+        <a href="https://arxiv.org/abs/2407.16732">📃 Paper</a> •
+        <a href="https://huggingface.co/datasets/Mercury7353/PyInstruct">🤗 Data (PyInstruct)</a> •
+        <a href="https://huggingface.co/Mercury7353/PyLlama3">🤗 Model (PyLlama3)</a>
+    </p>
+
+    <p>
+        PyBench is a comprehensive benchmark evaluating LLM on real-world coding tasks including <strong>chart analysis</strong>, <strong>text analysis</strong>, <strong>image/ audio editing</strong>, <strong>complex math</strong> and <strong>software/website development</strong>. We collect files from Kaggle, arXiv, and other sources and automatically generate queries according to the type and content of each file.
+    </p>
+
+    <img src="images/main.png" alt="Overview">
+
+    <h2>Why PyBench?</h2>
+    <p>
+        The LLM Agent, equipped with a code interpreter, is capable of automatically solving real-world coding tasks, such as data analysis and image processing. However, existing benchmarks primarily focus on either simplistic tasks, such as completing a few lines of code, or on extremely complex and specific tasks at the repository level, neither of which are representative of various daily coding tasks. To address this gap, we introduce <strong>PyBench</strong>, a benchmark that encompasses 6 main categories of real-world tasks, covering more than 10 types of files.
+    </p>
+
+    <img src="images/generateTraj.png" alt="How PyBench Works">
+
+    <h2>📁 PyInstruct</h2>
+    <p>
+        To figure out a way to enhance the model's ability on PyBench, we generate a homologous dataset: <strong>PyInstruct</strong>. The PyInstruct contains multi-turn interaction between the model and files, stimulating the model's capability on coding, debugging and multi-turn complex task solving. Compare to other Datasets focus on multi-turn coding ability, PyInstruct has longer turns and tokens per trajectory.
+    </p>
+
+    <img src="images/data.png" alt="Data Statistics">
+    <p><em>Dataset Statistics. Token statistics are computed using Llama-2 tokenizer.</em></p>
+
+    <h2>🪄 PyLlama</h2>
+    <p>
+        We trained Llama3-8B-base on PyInstruct, CodeActInstruct, CodeFeedback, and Jupyter Notebook Corpus to get PyLlama3, achieving an outstanding performance on PyBench
+    </p>
+
+    <h2>📊 LeaderBoard</h2>
+    <img src="images/leaderboard.png" alt="LLM Leaderboard">
+
+    <h2>📚 Citation</h2>
+    <pre><code>@misc{zhang2024pybenchevaluatingllmagent,
+      title={PyBench: Evaluating LLM Agent on various real-world coding tasks}, 
+      author={Yaolun Zhang and Yinxu Pan and Yudong Wang and Jie Cai and Zhi Zheng and Guoyang Zeng and Zhiyuan Liu},
+      year={2024},
+      eprint={2407.16732},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2407.16732}, 
+}</code></pre>
+
+</body>
+</html>
+
